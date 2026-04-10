@@ -35,9 +35,9 @@ mvn test
 - **Python 3** (Script de notificação)
 
 ## 💡 IA?
-Para esta atividade, a **IA Antigravity (Google DeepMind)** foi utilizada como assistente de programação (Pair Programming).
-- **Prompts Utilizados**: O arquivo PDF com os requisitos foi fornecido à IA para elaboração do plano de testes e estrutura do pipeline.
-- **Resultado**: A IA auxiliou na organização estrutural, criação dos 20 casos de teste baseados na lógica de negócio existente e na escrita do workflow YAML seguindo as melhores práticas de DevOps. O resultado foi satisfatório, garantindo a cobertura exigida e a automação do deploy.
+Neste projeto, foram utilizadas ferramentas de IA (Gemini 3 Flash, Gemini Pro 3.1 e Claude Opus 4.6) para auxiliar no desenvolvimento.
+- **Prompts e Uso**: Os prompts foram focados na estruturação da lógica de UID, organização sistemática de pastas e correção de erros de compilação/lógica.
+- **Avaliação**: O resultado foi excelente (ótimo), permitindo uma organização clara do código e uma rápida resolução de bugs, facilitando a implementação do pipeline e dos testes unitários.
 
 ---
 **Professor**: Christopher Lima  
