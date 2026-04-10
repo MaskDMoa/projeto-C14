@@ -57,7 +57,7 @@
 
             <!-- Plugin para Executar Testes no Pipeline -->
             <plugin>
-                <groupId>maven-shade-plugin</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.0</version>
                 <executions>
