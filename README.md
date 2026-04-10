@@ -35,9 +35,11 @@ mvn test
 - **Python 3** (Script de notificação)
 
 ## 💡 IA?
-Neste projeto, foram utilizadas ferramentas de IA (Gemini 3 Flash, Gemini Pro 3.1 e Claude Opus 4.6) para auxiliar no desenvolvimento.
-- **Prompts e Uso**: Os prompts foram focados na estruturação da lógica de UID, organização sistemática de pastas e correção de erros de compilação/lógica.
+Neste projeto, foram utilizadas ferramentas de IA (Gemini 3 Flash, Gemini Pro 3.1, Claude Opus 4.6 e **Antigravity**) para auxiliar no desenvolvimento.
+- **Prompts e Uso**: Os prompts foram focados na estruturação da lógica de UID, organização sistemática de pastas, correção de erros de compilação/lógica e na implementação completa do pipeline CI/CD com testes automatizados.
 - **Avaliação**: O resultado foi excelente (ótimo), permitindo uma organização clara do código e uma rápida resolução de bugs, facilitando a implementação do pipeline e dos testes unitários.
+
+<!-- Teste final do pipeline CI/CD com Webhook de Notificação -->
 
 ---
 **Professor**: Christopher Lima  
