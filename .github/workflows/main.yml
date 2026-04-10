@@ -1,0 +1,106 @@
+name: Java CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # 1. Job de Testes Unitários
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Executar Testes Unitários
+        run: mvn test
+
+      - name: Armazenar Relatórios de Teste
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sufire-reports
+          path: target/surefire-reports/
+
+  # 2. Job de Build / Empacotamento (EM PARALELO com Testes)
+  build:
+    name: Build & Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Gerar Pacote JAR
+        run: mvn package -DskipTests
+
+      - name: Armazenar Artefato JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: logseparator-jar
+          path: target/*.jar
+
+  # 3. Job de Deploy (Artefatos) - Só roda após Sucesso de Build e Teste
+  deploy:
+    name: Deploy to GitHub Releases
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Baixar Artefato JAR
+        uses: actions/download-artifact@v4
+        with:
+          name: logseparator-jar
+          path: dist/
+
+      - name: Criar GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          files: dist/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # 4. Job de Notificação - Roda sempre ao final para reportar status
+  notify:
+    name: Notification
+    needs: [test, build, deploy]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar Dependências de Notificação
+        run: pip install requests
+
+      - name: Executar Script de Notificação
+        env:
+          JOB_STATUS: ${{ needs.deploy.result == 'success' && 'success' || 'failure' }}
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+        run: python scripts/notify.py

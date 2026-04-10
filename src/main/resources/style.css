@@ -1,0 +1,179 @@
+/* ===== Root / Tema Escuro ===== */
+.root-container {
+    -fx-background-color: #1e1e2e;
+}
+
+/* ===== Barra Superior ===== */
+.barra-superior {
+    -fx-background-color: #181825;
+    -fx-border-color: #313244;
+    -fx-border-width: 0 0 1 0;
+}
+
+.btn-carregar {
+    -fx-background-color: #45475a;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 18;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-carregar:hover {
+    -fx-background-color: #585b70;
+}
+
+.status-label {
+    -fx-text-fill: #a6adc8;
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 0 8;
+}
+
+.contador-label {
+    -fx-text-fill: #6c7086;
+    -fx-font-size: 11px;
+    -fx-padding: 0 4 0 0;
+}
+
+.monitor-label {
+    -fx-text-fill: #a6e3a1;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 4 0 0;
+}
+
+/* ===== Barra de Filtros ===== */
+.barra-filtros {
+    -fx-background-color: #181825;
+    -fx-border-color: #313244;
+    -fx-border-width: 0 0 1 0;
+}
+
+.btn-filtro {
+    -fx-background-color: #313244;
+    -fx-text-fill: #bac2de;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+}
+
+.btn-filtro:hover {
+    -fx-background-color: #45475a;
+}
+
+/* --- Filtro selecionado por tipo --- */
+.filtro-all.selecionado, .filtro-all.selecionado:hover {
+    -fx-background-color: #31324c;
+    -fx-border-color: #89b4fa;
+    -fx-text-fill: #89b4fa;
+}
+
+.filtro-error.selecionado, .filtro-error.selecionado:hover {
+    -fx-background-color: #3e2035;
+    -fx-border-color: #f38ba8;
+    -fx-text-fill: #f38ba8;
+}
+
+.filtro-warning.selecionado, .filtro-warning.selecionado:hover {
+    -fx-background-color: #3e3520;
+    -fx-border-color: #f9e2af;
+    -fx-text-fill: #f9e2af;
+}
+
+.filtro-info.selecionado, .filtro-info.selecionado:hover {
+    -fx-background-color: #1e3a2e;
+    -fx-border-color: #a6e3a1;
+    -fx-text-fill: #a6e3a1;
+}
+
+/* ===== ScrollPane de Log ===== */
+.scroll-log {
+    -fx-background-color: #1e1e2e;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-log .viewport {
+    -fx-background-color: #1e1e2e;
+}
+
+.scroll-log:focused {
+    -fx-background-color: #1e1e2e;
+}
+
+/* Scrollbar estilizada */
+.scroll-log .scroll-bar {
+    -fx-background-color: #181825;
+}
+
+.scroll-log .scroll-bar .thumb {
+    -fx-background-color: #45475a;
+    -fx-background-radius: 4;
+}
+
+.scroll-log .scroll-bar .thumb:hover {
+    -fx-background-color: #585b70;
+}
+
+.scroll-log .scroll-bar .increment-button,
+.scroll-log .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-log .scroll-bar .increment-arrow,
+.scroll-log .scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* ===== TextFlow de Log ===== */
+.text-flow-log {
+    -fx-background-color: #1e1e2e;
+}
+
+/* ===== Cores das linhas de log ===== */
+
+/* Texto padrão (NORMAL) */
+.log-text {
+    -fx-fill: #cdd6f4;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+}
+
+/* [Erro] / [Error] — Vermelho */
+.log-erro {
+    -fx-fill: #f38ba8;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* [Warning] — Amarelo */
+.log-warning {
+    -fx-fill: #f9e2af;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* [Info] — Verde */
+.log-info {
+    -fx-fill: #a6e3a1;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+}
+
+/* Placeholder */
+.log-placeholder {
+    -fx-fill: #6c7086;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
